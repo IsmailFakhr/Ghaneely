@@ -118,6 +118,8 @@ class _ArtistDetailScreenState extends State<ArtistDetailScreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text(widget.artistName, style: TextStyle(color: Colors.white)),
+        // Make the back arrow white
+        iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -181,7 +183,7 @@ class _ArtistDetailScreenState extends State<ArtistDetailScreen> {
                 SizedBox(height: 24),
                 // Top Tracks Header
                 Text(
-                  'Songs:',
+                  'Top Tracks:',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -209,7 +211,8 @@ class _ArtistDetailScreenState extends State<ArtistDetailScreen> {
                             height: 50,
                             fit: BoxFit.cover,
                           )
-                              : Icon(Icons.music_note, color: Colors.white70, size: 50),
+                              : Icon(Icons.music_note,
+                              color: Colors.white70, size: 50),
                           title: Text(
                             track['name'],
                             style: TextStyle(color: Colors.white),

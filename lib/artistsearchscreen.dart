@@ -23,7 +23,8 @@ class _ArtistSearchScreenState extends State<ArtistSearchScreen> {
 
   /// Retrieve a fresh Spotify token using Client Credentials Flow
   Future<String?> _getSpotifyAccessToken() async {
-    final String credentials = base64Encode(utf8.encode('$clientId:$clientSecret'));
+    final String credentials =
+    base64Encode(utf8.encode('$clientId:$clientSecret'));
 
     final response = await http.post(
       Uri.parse('https://accounts.spotify.com/api/token'),
@@ -140,7 +141,14 @@ class _ArtistSearchScreenState extends State<ArtistSearchScreen> {
                       borderSide: BorderSide.none,
                     ),
                   ),
-                  onChanged: (value) => _searchArtists(value),
+                  onChanged: (value) {
+                    if (value.isEmpty) {
+                      // Clear search results if text is cleared
+                      setState(() => _searchResults = []);
+                    } else {
+                      _searchArtists(value);
+                    }
+                  },
                 ),
               ),
 

@@ -145,7 +145,6 @@ class _LyricPageState extends State<LyricPage> {
 
       // 5) Clean up lyrics (remove bracketed e.g. [Chorus])
       lyricsText = lyricsText
-          .replaceAll(RegExp(r'\[.*?\]'), '')         // remove [Chorus], [Verse 1], etc.
           .replaceAll(RegExp(r'(\r?\n){3,}'), '\n\n') // avoid excessive blank lines
           .trim();
 
@@ -192,7 +191,7 @@ class _LyricPageState extends State<LyricPage> {
 
           // 2) Dark overlay to make text more readable
           Container(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withOpacity(0.6),
           ),
 
           // 3) Main content (back arrow + title + lyrics)
